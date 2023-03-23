@@ -1,0 +1,109 @@
+Docker ============ It Packages ur application and its dependencies( OS+JAVA/Tomcat)
+------------------
+Containerization: creating container where we will be packaging which includes all dependencies.
+
+Docker Image: which contain all the tools 
+
+
+
+Developer------Git(Latest Code)------Maven(Building Tool)-----JAR/WAR Artifact
+|---------------Automated using Jenkin---------------------------------------|
+
+
+Artifact-----(Ansible)---->VM(OS+Software)
+
+
+
+Docker Image--------- Artifact + VM(OS+Software)(code dependencies required to run artifact)
+
+** Application run in container
+
+
+Dev--->Testing--->Deploy
+
+Download docker image and run
+
+--------------------------------------------------------------
+
+Docker Architecture
+
+1.Docker Client-------------- Docker build, pull, run
+2.Docker Host/Docker Daemon--------like local repo
+3.Registry/Docker Hub------------pusing docker image created to docker hub
+
+----------------
+
+** After docker installation first two will installed in our system
+
+
+
+
+-----------------------------------------------------------------
+
+Install Docker
+==============
+
+1. sudo apt-get install docker.io
+
+commands
+
+1.docker image-- it shows images 
+2. docker ps--   container running right now
+3. docker ps -a --- all container running , killed
+4. docker pull httpd // pull docker images
+5. docker run name/id
+** docker run -d -p 8080:80 id
+6. docker kill id/name
+
+
+-------------------------------------------------------
+
+dockerhub.com
+=======================
+
+1. sign up
+
+
+1. create repo--- Local and remote repo
+	1.1 Give Name ( Repo)
+
+
+
+** docker hub is ready
+
+
+------------------------------------------
+
+** Creating docker**
+************************************
+
+1. create Dockerfile
+
+vi Dockerfile
+docker build .
+
+syntax of docker will be in capital like CUSTOM, FROM
+
+
+FROM  Base image  FROM ubuntu
+RUN  apt-get install ( linux command) -- execute linux command
+MAINAINER 
+EXPOSE [port]--- EXPOSE 8080
+ENV -- set environment variables
+COPY machine level to container--- inside container
+VOLUME
+
+CMD and ENTRYPOINT----- for container
+
+
+
+================================================
+
+
+push to docker hub
+==========================================
+docker tag docker_image docker_repo:v1.0
+docker push docker_repo:v1.0
+
+
+
